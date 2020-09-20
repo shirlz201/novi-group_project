@@ -10,7 +10,7 @@ const Address = require('./address.model.js');
 
 ​
 ​
-const contactSchema = new Schema({
+const eventSchema = new Schema({
     name: {
         type: String,
         required: true,

@@ -44,7 +44,7 @@ const contactSchema = new Schema({
     // referencing document
     birthday: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Author'
+        ref: 'Birthday'
     },
     holidays: [{
         type: mongoose.Schema.Types.ObjectId,

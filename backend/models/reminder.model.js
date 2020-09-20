@@ -25,3 +25,6 @@ reminder: {
 },
 
 });
+
+const Reminder = mongoose.model('Reminder', reminderSchema);
+module.exports = Reminder;

@@ -20,7 +20,9 @@ date: {
 },
 
 //reoccuring: weekly, monthly, yearly
-reoccuring: String,
+reoccuring: {
+    type: String
+},
 
 notes: {
     type: String,
