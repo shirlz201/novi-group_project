@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const eventRoutes = require('./routes/eventRoutes.js');
 const holidayRoutes = require('./routes/holidayRoutes.js')
 const reminderRoutes = require('./routes/reminderRoutes')
+const contactsRouter = require('./routes/contacts');
 
 require('dotenv').config();
 
@@ -18,6 +19,7 @@ const uri = process.env.ATLAS_URI;
 /*useNewUrlParser: true -> added because the MongoDB Node.js driver rewrote
  the tool it uses to parse MongoDB connection strings */
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+
 const connection = mongoose.connection;
 /*section useCreateIndex: true is similar -> it deals with MongoDB 
 deprecating the ensureIndex() function */
@@ -32,15 +34,12 @@ to perform CRUD operations
 const interestsRouter = require('./routes/interests');
 const usersRouter = require('./routes/users');
 
-
-
 app.use("/api", eventRoutes);
 app.use("/api", holidayRoutes)
 app.use("/api", reminderRoutes)
 app.use('/interests', interestsRouter);
 app.use('/users', usersRouter);
-
-
+app.use('/contacts', contactsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -20,4 +20,4 @@ const Interest = mongoose.model('Interest', interestSchema);
 module.exports = Interest;
 
 //embedding document
-// exports.interestSchema = interestSchema;
+module.exports.interestSchema = interestSchema;
