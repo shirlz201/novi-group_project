@@ -12,7 +12,7 @@ const interestSchema = new Schema({
     },
     color: {
         type: String,  //color code
-    },
+    }
 });
 
 

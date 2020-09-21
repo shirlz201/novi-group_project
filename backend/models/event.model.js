@@ -3,14 +3,9 @@ const Schema = mongoose.Schema;
 ​
 //referencing document
 const Address = require('./address.model.js');
-
-​
 //embedding document
 // const {addressSchema} = require('./address.model.js');
-
-​
-​
-const contactSchema = new Schema({
+const eventSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -42,8 +37,6 @@ const contactSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address'
     }],
-    
-​
     //embedding document
     // address: {
     //     type: addressSchema
