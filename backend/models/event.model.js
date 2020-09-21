@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-​
+
 //referencing document
-const Address = require('./address.model.js');
+// const Address = require('./address.model.js');
 
-​
 //embedding document
-// const {addressSchema} = require('./address.model.js');
+const {addressSchema} = require('./address.model.js');
 
-​
-​
-const contactSchema = new Schema({
+const eventSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -37,22 +34,22 @@ const contactSchema = new Schema({
         type: Date,
         required: false
     },
+
     //referencing document
-    location: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Address'
-    }],
-    
-​
-    //embedding document
-    // address: {
-    //     type: addressSchema
-    // },
-    
+    // location: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Address'
+    // }],
+
+    // embedding document
+    location: {
+        type: addressSchema
+    },
+
 });
-​
+
 const Event = mongoose.model('Event', eventSchema);
 module.exports = Event;
-​
+
 //embedding document
-// exports.eventSchema = eventSchema;
+module.exports.eventSchema = eventSchema;
