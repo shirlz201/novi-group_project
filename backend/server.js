@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const holidayRoutes = require('./routes/holidayRoutes.js')
+const reminderRoutes = require('./routes/reminderRoutes')
 
 require('dotenv').config();
 
@@ -29,8 +31,12 @@ to perform CRUD operations
 const interestsRouter = require('./routes/interests');
 const usersRouter = require('./routes/users');
 
+
+app.use("/api", holidayRoutes)
+app.use("/api", reminderRoutes)
 app.use('/interests', interestsRouter);
 app.use('/users', usersRouter);
+
 
 
 app.listen(port, () => {
