@@ -5,6 +5,8 @@ const eventRoutes = require('./routes/eventRoutes.js');
 const holidayRoutes = require('./routes/holidayRoutes.js')
 const reminderRoutes = require('./routes/reminderRoutes')
 const contactsRouter = require('./routes/contacts');
+const usersRouter = require('./routes/users.js');
+const interestsRouter = require('./routes/interests.js');
 
 require('dotenv').config();
 
@@ -31,8 +33,6 @@ connection.once('open', () => {
 API endpoint routes are added so the server can be used
 to perform CRUD operations
 -Below tells the server to use the files just created-*/
-const interestsRouter = require('./routes/interests');
-const usersRouter = require('./routes/users');
 
 app.use("/api", eventRoutes);
 app.use("/api", holidayRoutes)
