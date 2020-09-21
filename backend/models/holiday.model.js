@@ -1,4 +1,4 @@
-const Contact = require('./contact.model.js');
+// const Contact = require('./contact.model.js');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -20,7 +20,8 @@ date: {
 },
 
 //reoccuring: weekly, monthly, yearly
-reoccuring: {
+
+reoccuring:{ 
     type: String
 },
 
@@ -28,10 +29,10 @@ notes: {
     type: String,
     required: false
 },
-contacts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Contact'
-}]
+// contacts: [{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Contact'
+// }]
 
 });
 

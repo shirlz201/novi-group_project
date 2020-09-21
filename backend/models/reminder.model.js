@@ -22,7 +22,7 @@ contactId: {
 reminder: {
     type: String,
     required: false
-},
+}
 
 });
 
