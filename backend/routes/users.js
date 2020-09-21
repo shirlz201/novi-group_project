@@ -1,5 +1,6 @@
-const router = require('express').Router();
-let User = require('../models/user.model');
+// const router = require('express').Router();
+// let User = require('../models/user.model');
+
 
 /* 1st endpoint handles incoming GET reqs - Users.find() is a method
 to get a list of all the users from the DB
@@ -75,3 +76,4 @@ router.route('/update/:id').post((req, res) => {
 
 
 module.exports = router;
+
