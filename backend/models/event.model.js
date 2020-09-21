@@ -50,6 +50,5 @@ const eventSchema = new Schema({
 
 const Event = mongoose.model('Event', eventSchema);
 module.exports = Event;
-
 //embedding document
 module.exports.eventSchema = eventSchema;

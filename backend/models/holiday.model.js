@@ -1,4 +1,4 @@
-const Contact = require('./contact.model.js');
+// const Contact = require('./contact.model.js');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -19,18 +19,19 @@ const holidaySchema = new Schema({
         required: true
     },
 
-    //reoccuring: weekly, monthly, yearly
-    reoccuring: String,
+//reoccuring: weekly, monthly, yearly
+reoccuring:{ 
+    type: String
+},
 
-    notes: {
-        type: String,
-        required: false
-    },
-    contacts: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Contact'
-    }]
-
+notes: {
+    type: String,
+    required: false
+},
+// contacts: [{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Contact'
+// }]
 });
 
 //embedding reference

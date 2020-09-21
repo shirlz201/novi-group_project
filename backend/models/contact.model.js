@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 // referencing document
 // const Birthday = require('./birthday.model.js');
 // const Holiday = require('./holiday.model.js');
@@ -40,7 +39,6 @@ const contactSchema = new Schema({
     photo: {
         type: String
     },
-
     // referencing document
     // birthday: {
     //     type: mongoose.Schema.Types.ObjectId,

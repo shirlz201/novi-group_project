@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const birthdaySchema = new Schema({
     date: {
         type: Date,
-        required: true,
+        required: true
     }
    
 });
