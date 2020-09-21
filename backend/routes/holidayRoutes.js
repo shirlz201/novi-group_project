@@ -39,9 +39,10 @@ router.get('/holidays', async (req, res) => {
     try {
       const holiday = await holidayModel.findByIdAndDelete(req.params.id)
   
-      if (!holiday) res.status(404).send("No item found")
+      //Following line does not work
+      // if (!holiday) res.status(404).send("No item found")
       
-      res.status(200).send()
+      res.status(200).send("Delete success")
     } catch (err) {
       res.status(500).send(err)
     }

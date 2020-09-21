@@ -22,6 +22,9 @@ contactId: {
 reminder: {
     type: String,
     required: false
-},
+}
 
 });
+
+const Reminder = mongoose.model('Reminder', reminderSchema);
+module.exports = Reminder;
