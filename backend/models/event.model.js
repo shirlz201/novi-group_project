@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-​
 //referencing document
 const Address = require('./address.model.js');
 //embedding document
 // const {addressSchema} = require('./address.model.js');
+
 const eventSchema = new Schema({
     name: {
         type: String,
@@ -43,7 +43,6 @@ const eventSchema = new Schema({
     // },
     
 });
-​
 const Event = mongoose.model('Event', eventSchema);
 module.exports = Event;
 ​

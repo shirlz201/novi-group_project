@@ -20,6 +20,7 @@ date: {
 },
 
 //reoccuring: weekly, monthly, yearly
+
 reoccuring:{ 
     type: String
 },
