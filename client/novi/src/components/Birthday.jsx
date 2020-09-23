@@ -1,8 +1,12 @@
 import React from "react"
+import Button from 'react-bootstrap/Button'
 
 function Birthday() {
     return (
-        <h1>Birthday</h1>
+        <div class ="Birthday">
+            <h1>Birthday</h1>
+            <Button>Open</Button>
+        </div>
     )
 }
 
