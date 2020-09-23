@@ -1,17 +1,27 @@
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./pages/Home"
+import AddContact from "./pages/AddContact"
+
 // import Navbar from "./components/navbar.component";
 import CreateUser from "./components/create-user.component";
 
 function App() {
     return (
-            <div className="container">
-                {/* <Navbar /> */}
-                <br />
+        <div className="container">
+            <Switch>
+                {/* "exact" is needed in this route, otherwise it would match all paths starting with "/" */}
                 {/* Route paths go here */}
-                <Route path="/user" component={CreateUser} />
-            </div>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
+                <Route path="/addContact">
+                    <AddContact/>
+                </Route>
+            {/* <Route path="/user" component={CreateUser} /> */}
+            </Switch>
+        </div>
     );
 }
 
