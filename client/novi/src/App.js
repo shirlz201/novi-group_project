@@ -83,9 +83,10 @@ function App() {
                         />
                     </div>
                         Click to upload Image
-                </div> */}
-            </Router>
-        );
+                // </div> */
+                
+            // </Router>
+        // );
 
     }
 
