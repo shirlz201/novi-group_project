@@ -1,62 +1,59 @@
 const router = require('express').Router();
-let Interest = require('../models/interest.model');
+let Interest = require('../models/interest.model.js');
 const { route } = require('./users');
 
-/* 1st endpoint handles incoming GET reqs - Interest.find() is a method
-to get a list of all the interests from the DB
-Find method -> returns a Promise
-Results -> JSON format 
-*/
-router.route('/').get((req, res) => {
-    Interest.find()
-        .then(interests => res.json(interests))
-        .catch(err => res.status(400).json('Error: ' + err));
+// 1st endpoint handles incoming GET reqs to READ ALL
+router.get('/', async (req, res) => {
+    const interests = await Interest.find({});
+    try {
+        res.send(interests);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
-/* 2nd endpoint handles incoming POST reqs - after getting new username,
-a new instance of User is created -> new user is saved to the DB with the 
-save() & 'user added!' is returned
-*/
-router.route('/add').post((req, res) => {
-    const name = req.body.name;
-    const icon = req.body.icon;
-    const color = req.body.color;
+// 2nd endpoint handles incoming POST reqs to ADD
+router.post('/interest', async (req, res) => {
+    const interest = new Interest(req.body);
 
-    const newInterest = new Interest({
-        name,
-        icon,
-        color,
-    });
+    try {
+        await interest.save();
+        res.send(interest);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
-    newInterest.save()
-        .then(() => res.json('Interests added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+// 3rd endpoint handles GET reqs to READ BY ID
+router.get("/:id", async (req, res) => {
+    try {
+        const interest = await Interest.findById(req.params.id)
+        res.send(interest);
+    } catch (err) {
+        res.status(404).send("Interest does not exist");
+    }
 });
-// returns an interest with the given id
-router.route('/:id').get((req, res) => {
-    Interest.findById(req.params.id)
-        .then(interests => res.json(interests))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-// deletes an interest with the given id
-router.route('/:id').delete((req, res) => {
-    Interest.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Interest deleted.'))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-// updates an existing interest item
-router.route('/update/:id').post((req, res) => {
-    Interest.findById(req.params.id)
-        .then(interests => {
-            interests.name = req.body.name;
-            interests.icon = req.body.icon;
-            interests.color = req.body.color;
 
-            interests.save()
-                .then(() => res.json('Interests updated!'))
-                .catch(err => res.status(400).json('Error ' + err));
-        })
-            .catch(err => res.status(400).json('Error: ' + err));
+// 4th endpoint handles DELETE reqs to DELETE BY ID
+router.route('/:id', async (req, res) => {
+    try {
+        const interest = await Interest.findByIdAndDelete(req.params.id)
+
+        if (!interest) res.status(404).send("No interest found")
+        res.status(500).send(err)
+    } catch (err) {
+        res.status(404).send("Interest deleted");
+    }
+});
+// 5th endpoint handles PATCH reqs to UPDATE 
+router.patch('/update/:id', async (req, res) => {
+    try {
+        const interest = await Interest.findByIdAndUpdate(req.params.id, req.body)
+        await interest.save();
+        res.send(interest)
+    } catch (err) {
+        res.status(500).send(err)
+    }
 });
 
 module.exports = router;

@@ -1,77 +1,71 @@
-// const router = require('express').Router();
-// let User = require('../models/user.model');
+const router = require('express').Router();
+let User = require('../models/user.model.js');
 
 
 /* 1st endpoint handles incoming GET reqs - Users.find() is a method
-to get a list of all the users from the DB
-Find method -> returns a Promise
-Results -> JSON format 
+to get a list of ALL the users from the DB
+try/catch method is used
 */
-router.route('/').get((req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
+router.get('/', async (req, res) => {
+    const users = await User.find({});
+    try {
+        res.send(users);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+})
 
 /* 2nd endpoint handles incoming POST reqs - after getting new username,
-a new instance of User is created -> new user is saved to the DB with the 
-save() & 'user added!' is returned
+a new instance of User is CREATED
 */
-router.route('/add').post((req, res) => {
+router.post('/add', async (req, res) => {
+    const user = new User(req.body);
 
-    const profilepic = req.body.profilepic;
-    const username = req.body.username;
-    const password = req.body.password;
-    const firstname = req.body.firstname;
-    const lastname = req.body.lastname;
-    const phonenumber = req.body.phonenumber;
-    const email = req.body.email;
+    try {
+        await user.save();
+        res.send(user);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 
-    const newUser = new User({
-        profilepic,
-        username,
-        password,
-        firstname,
-        lastname,
-        phonenumber,
-        email,
-    });
-
-    newUser.save()
-        .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // returns a user with the given id
-router.route('/:id').get((req, res) => {
-    User.findById(req.params.id)
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err));
+router.get('/users/:id', async (req, res) => {
+
+    try {
+        const user = await User.findById(req.params.id)
+        res.send(user)
+    } catch (err) {
+        res.status(404).send("No user found");
+    }
 });
+
 // deletes a user with the given id
-router.route('/:id').delete((req, res) => {
-    User.findByIdAndDelete(req.params.id)
-        .then(() => res.json('User deleted.'))
-        .catch(err => res.status(400).json('Error: ' + err));
+router.delete('/:id', async (req, res) => {
+
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+
+        if (!user) res.status(404).send("No user found")
+        res.status(200).send();
+
+    } catch (err) {
+        res.status(500).send(err)
+    }
+
 });
-// updates an existing user item
-router.route('/update/:id').post((req, res) => {
-    User.findById(req.params.id)
-        .then(users => {
 
-            users.profilepic = req.body.profilepic;
-            users.username = req.body.username;
-            users.password = req.body.password;
-            users.firstname = req.body.firstname;
-            users.lastname = req.body.lastname;
-            users.phonenumber = req.body.phonenumber;
-            users.email = req.body.email;
+// updates an existing user 
+router.patch('/update/:id', async (req, res) => {
 
-            users.save()
-                .then(() => res.json('User updated!'))
-                .catch(err => res.status(400).json('Error ' + err));
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
+    try {
+        const user = await User.findByIdAndUpdate(req.params.id, req.body)
+        await user.save();
+        res.send(user)
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 
