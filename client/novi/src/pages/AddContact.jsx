@@ -3,6 +3,7 @@ import Birthday from "../components/Birthday"
 import Holiday from "../components/Holiday"
 import Container from "react-bootstrap/Container"
 import ContactForm from "../components/create-contactform.component"
+import Interest from "../components/AddInterest";
 
 function AddContact() {
     return (
@@ -10,6 +11,7 @@ function AddContact() {
             <Birthday />
             <Holiday />
             <ContactForm />
+            <Interest />
         </Container>
         
     )
