@@ -1,12 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/navbar.component";
+import Home from "./pages/Home"
+import AddContact from "./pages/AddContact"
+import Container from 'react-bootstrap/Container';
+// import Navbar from "./components/navbar.component";
+import CreateUser from "./components/create-user.component";
 import CreateContactForm from "./components/create-contactform.component";
 import AddProfilePic from "./components/add-profilepic.component";
 
+
+
 function App() {
-    //useRef hook is used
+   //useRef hook is used
     const uploadedImage = React.useRef(null);
     const handleImageUpload = e => {
         const [file] = e.target.files;
@@ -22,18 +28,25 @@ function App() {
             reader.readAsDataURL(file);
         }
     }
-
-
-        return (
-            <Router>
-                <div className="container">
-                    <Navbar />
-                    <br />
+  
+    return (
+        <Router>
+                <Switch>
+                    {/* "exact" is needed in this route, otherwise it would match all paths starting with "/" */}
                     {/* Route paths go here */}
-                    <Route path="/contact" component={CreateContactForm} />
-                    <Route path="/contact" component={AddProfilePic} />
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/addContact">
+                        <AddContact />
+                    </Route>
+                    {/* <Route path="/user" component={CreateUser} /> */}
+                </Switch>
+        </Router>
+    );
+}
 
-                </div>
+
 
                 {/* <div
                     style={{

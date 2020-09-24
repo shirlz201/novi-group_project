@@ -1,5 +1,6 @@
 // const Contact = require('./contact.model.js');
 const mongoose = require('mongoose');
+const {contactSchema} = require('./contact.model.js')
 
 const Schema = mongoose.Schema;
 
@@ -28,10 +29,10 @@ notes: {
     type: String,
     required: false
 },
-// contacts: [{
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Contact'
-// }]
+contacts: {
+    type: [contactSchema]
+}
+
 });
 
 //embedding reference

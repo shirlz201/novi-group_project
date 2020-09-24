@@ -1,5 +1,6 @@
 const router = require('express').Router();
-let User = require('../models/user.model.js');
+let User = require('../models/user.model');
+
 
 
 /* 1st endpoint handles incoming GET reqs - Users.find() is a method
