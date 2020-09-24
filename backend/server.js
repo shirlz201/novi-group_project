@@ -7,6 +7,8 @@ const reminderRoutes = require('./routes/reminderRoutes')
 const contactsRouter = require('./routes/contacts');
 const usersRouter = require('./routes/users.js');
 const interestsRouter = require('./routes/interests.js');
+const addressesRouter = require('./routes/addresses');
+const birthdayRouter = require('./routes/birthday');
 
 require('dotenv').config();
 
@@ -40,6 +42,8 @@ app.use("/api", reminderRoutes)
 app.use('/interests', interestsRouter);
 app.use('/users', usersRouter);
 app.use('/contacts', contactsRouter);
+app.use("/api", addressesRouter);
+app.use("/api", birthdayRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
