@@ -9,8 +9,6 @@ import CreateUser from "./components/create-user.component";
 import CreateContactForm from "./components/create-contactform.component";
 import AddProfilePic from "./components/add-profilepic.component";
 
-
-
 function App() {
    //useRef hook is used
     const uploadedImage = React.useRef(null);
