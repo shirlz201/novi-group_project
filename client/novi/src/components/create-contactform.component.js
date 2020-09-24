@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-date-picker'
 import axios from 'axios';
 
 export default class CreateContactForm extends Component {
@@ -73,7 +74,7 @@ export default class CreateContactForm extends Component {
 
     onChangeBirthday(e) {
         this.setState({
-            date: date
+            date: Date
         })
     }
     onChangeHoliday(e) {
@@ -227,7 +228,5 @@ export default class CreateContactForm extends Component {
 
         )
     }
-
-
 
 }
