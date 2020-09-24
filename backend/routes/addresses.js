@@ -27,7 +27,7 @@ router.get('/addresses', async (req, res) => {
 //Read by ID
 router.get("/address/:id", async (req, res) => {
 	try {
-		const reminder = await addressModel.findById(req.params.id)
+		const address = await addressModel.findById(req.params.id)
 		res.send(address)
 	} catch (err){
 		res.status(404).send("That address doesn't exist!")
@@ -37,9 +37,9 @@ router.get("/address/:id", async (req, res) => {
 //Update
 router.patch('/address/:id', async (req, res) => {
     try {
-        await addressModel.findByIdAndUpdate(req.params.id, req.body)
-        await addressModel.save()
-        res.send()
+        const address = await addressModel.findByIdAndUpdate(req.params.id, req.body)
+        await address.save()
+        res.send(address)
     } catch (err) {
         res.status(500).send(err)
     }

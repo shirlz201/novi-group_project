@@ -27,7 +27,7 @@ router.get('/birthday', async (req, res) => {
 //Read by ID
 router.get("/birthday/:id", async (req, res) => {
 	try {
-		const reminder = await birthdayModel.findById(req.params.id)
+		const birthday = await birthdayModel.findById(req.params.id)
 		res.send(birthday)
 	} catch (err){
 		res.status(404).send("That birthday doesn't exist!")
@@ -37,9 +37,9 @@ router.get("/birthday/:id", async (req, res) => {
 //Update birthdays
 router.patch('/birthday/:id', async (req, res) => {
     try {
-        await birthdayModel.findByIdAndUpdate(req.params.id, req.body)
-        await birthdayModel.save()
-        res.send()
+        const birthday= await birthdayModel.findByIdAndUpdate(req.params.id, req.body)
+        await birthday.save()
+        res.send(birthday)
     } catch (err) {
         res.status(500).send(err)
     }
