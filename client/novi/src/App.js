@@ -8,7 +8,7 @@ import Navbar from "./components/TopBar";
 import CreateUser from "./components/create-user.component";
 import Sidebar from './components/Sidebar';
 import CreateContactForm from "./components/AddContactCard";
-import AddProfilePic from "./components/AddProfilePic";
+
 
 function App() {
    //useRef hook is used

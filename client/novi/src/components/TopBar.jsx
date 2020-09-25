@@ -35,7 +35,7 @@ function TopBar() {
                             size="60" round={true} name="Mark Otto" onClick={Card} />
                     </a>
 
-                    <Card style={{ width: '18rem' }}>
+                    {/* <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Title>Hi Mark!</Card.Title>
                         <Card.Header>Featured</Card.Header>
@@ -44,7 +44,7 @@ function TopBar() {
                             <ListGroup.Item>My Events</ListGroup.Item>
                             <a href="#"><ListGroup.Item>Sign Out</ListGroup.Item></a>
                         </ListGroup>
-                    </Card>
+                    </Card> */}
 
 
                 </Navbar>
