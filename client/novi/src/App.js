@@ -6,6 +6,7 @@ import AddContact from "./pages/AddContact"
 import Container from 'react-bootstrap/Container';
 import Navbar from "./components/TopBar";
 import CreateUser from "./components/create-user.component";
+import Sidebar from './components/Sidebar';
 import CreateContactForm from "./components/AddContactCard";
 import AddProfilePic from "./components/AddProfilePic";
 
@@ -37,6 +38,9 @@ function App() {
                     </Route>
                     <Route path="/addContact">
                         <AddContact />
+                    </Route>
+                    <Route path="/">
+                        <Home /> 
                     </Route>
                     {/* <Route path="/user" component={CreateUser} /> */}
                 </Switch>

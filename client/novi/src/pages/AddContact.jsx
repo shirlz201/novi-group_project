@@ -3,11 +3,9 @@ import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
 import Container from "react-bootstrap/Container"
 import ContactForm from "../components/AddContactCard"
-
 import Interest from "../components/AddInterest";
+import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
-
-
 
 function AddContact() {
     const [birthday, setBirthday] = useState(new Date())
@@ -17,9 +15,9 @@ function AddContact() {
     const [bdayGiftReminder, setBdayGiftReminder] = useState(false)
     const [bdayTextReminder, setBdayTextReminder] = useState(false)
     
-
     return (
         <Container>
+            <Sidebar />
             <TopBar />
             <ContactForm />
             {/* {console.log(birthday)} */}
