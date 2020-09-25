@@ -15,28 +15,28 @@ function Sidebar() {
 
     return (
         <>
-        //Lets you customize all icons in here on a top level so you dont have to individually place a color to class to each icon
-        //Play aroud with the color and change them to any you llike guys
+        {/* //Lets you customize all icons in here on a top level so you dont have to individually place a color to class to each icon */}
+        {/* //Play aroud with the color and change them to any you like guys */}
         <IconContext.Provider value={{color: '#fff'}}>
             <div className="navbar">
                 <Link to="#" className="menu-bars">
-                    //Import bars icon from fontawesome using react. Instead of having a bunch of icon imports you use the (.) to call the other icons from Font Awesome
-                    //Also when clicked it does the oposite of when it was not clicked if that makes sense I am tired lol
-                    //Its now 3:06am and I am up struggling lol
+                    {/* //Import bars icon from fontawesome using react. Instead of having a bunch of icon imports you use the (.) to call the other icons from Font Awesome */}
+                    {/* //Also when clicked it does the oposite of when it was not clicked if that makes sense I am tired lol */}
+                    {/* //Its now 3:06am and I am up struggling lol */}
                     <FaIcons.FaBars onClick={showSidebar} />
                 </Link>
             </div> 
-            // If true when icon is clicked the sidebar the sidebar will show else hide it
+            {/* // If true when icon is clicked the sidebar the sidebar will show else hide it */}
             <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                //It will close menu when any of the items are clicked
+                {/* //It will close menu when any of the items are clicked */}
                 <ul className="nav-menu-items" onClick={showSidebar}>
                     <li className="navbar-toggle">
                         <Link to="#" className="menu-bars">
-                            //Import x looking icon thing from Ant Design Icons from react-icons.github.io
+                            {/* //Import x looking icon thing from Ant Design Icons from react-icons.github.io */}
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
-                    //Maps through data from SidebarData.js and lists it
+                    {/* //Maps through data from SidebarData.js and lists it */}
                     {SidebarData.map((item, index) => {
                         return(
                             <li key={index} className={item.clssName}>

@@ -40,7 +40,7 @@ function App() {
                         <AddContact />
                     </Route>
                     <Route path="/">
-                        <Sidebar /> 
+                        <Home /> 
                     </Route>
                     {/* <Route path="/user" component={CreateUser} /> */}
                 </Switch>

@@ -7,31 +7,31 @@ import * as GiIcons from "react-icons/gi";
 //lists all the sidebar items and the icons they would be styled in
 export const SidebarData =[
     {
-        title: New,
+        title: 'New',
         path: "/",
         icon:<IoIcons.IoIosAdd />,
         clssName: "nav-text"
     },
     {
-        title: Contacts,
+        title: 'Contacts',
         path: "/",
         icon:<IoIcons.IoIosContacts />,
         clssName: "nav-text"
     },
     {
-        title: Events,
+        title: 'Events',
         path: "/",
         icon:<GiIcons.GiGlassCelebration />,
         clssName: "nav-text"
     },
     {
-        title: Calendar,
+        title: 'Calendar',
         path: "/",
         icon:<FaIcons.FaRegCalendarAlt />,
         clssName: "nav-text"
     },
     {
-        title: Reminder,
+        title: 'Reminder',
         path: "/",
         icon:<AiIcons.AiOutlineBell />,
         clssName: "nav-text"
