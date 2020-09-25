@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import CreateUser from "./components/create-user.component";
 import CreateContactForm from "./components/create-contactform.component";
 import AddProfilePic from "./components/add-profilepic.component";
+import Sidebar from './components/Sidebar';
 
 function App() {
    //useRef hook is used
@@ -37,6 +38,9 @@ function App() {
                     </Route>
                     <Route path="/addContact">
                         <AddContact />
+                    </Route>
+                    <Route path="/">
+                        <Sidebar /> 
                     </Route>
                     {/* <Route path="/user" component={CreateUser} /> */}
                 </Switch>
