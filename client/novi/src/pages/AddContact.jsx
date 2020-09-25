@@ -2,9 +2,11 @@ import React from "react"
 import Birthday from "../components/Birthday"
 import Holiday from "../components/Holiday"
 import Container from "react-bootstrap/Container"
-import ContactForm from "../components/create-contactform.component"
+import ContactForm from "../components/AddContactCard"
+
 import Interest from "../components/AddInterest";
 import TopBar from "../components/TopBar";
+
 
 function AddContact() {
     return (
