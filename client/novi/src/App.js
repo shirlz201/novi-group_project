@@ -4,11 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home"
 import AddContact from "./pages/AddContact"
 import Container from 'react-bootstrap/Container';
-// import Navbar from "./components/navbar.component";
+import Navbar from "./components/TopBar";
 import CreateUser from "./components/create-user.component";
-import CreateContactForm from "./components/create-contactform.component";
-import AddProfilePic from "./components/add-profilepic.component";
 import Sidebar from './components/Sidebar';
+import CreateContactForm from "./components/AddContactCard";
+import AddProfilePic from "./components/AddProfilePic";
 
 function App() {
    //useRef hook is used
