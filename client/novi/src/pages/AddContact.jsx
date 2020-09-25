@@ -2,8 +2,11 @@ import React, {useState} from "react"
 import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
 import Container from "react-bootstrap/Container"
-import ContactForm from "../components/create-contactform.component"
+import ContactForm from "../components/AddContactCard"
+
 import Interest from "../components/AddInterest";
+import TopBar from "../components/TopBar";
+
 
 
 function AddContact() {
@@ -17,6 +20,7 @@ function AddContact() {
 
     return (
         <Container>
+            <TopBar />
             <ContactForm />
             {/* {console.log(birthday)} */}
             <BirthdayNotification 
