@@ -38,7 +38,7 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
         <div className="col-12">
             <div className="row">
                 {allInterests.map((interest) => (
-                    <div className="col-3">
+                    <div className="col-auto">
                         <AddInterestCard
                             key={interest.id}
                             selectedInterests={selectedInterests}

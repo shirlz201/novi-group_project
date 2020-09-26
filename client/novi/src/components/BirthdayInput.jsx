@@ -1,22 +1,19 @@
 import React from 'react'
-import DatePicker from 'react-date-picker'
-import {Form} from "react-bootstrap"
+import DatePicker from 'react-datepicker'
+import {Form, Row} from "react-bootstrap"
 
-function BirthdayInput({setBirthday, birthday}) {
+function BirthdayInput({setBirthday, birthday, children}) {
     return (
-        <div>
-             <Form>
-              <div className="form-group row justify-content-center my-2">
-                        <label className ="col-2">Birthday: </label>
-                        <div className ="col-2">
-                            <DatePicker
-                              value={birthday}
-                              onChange={setBirthday}
-                            />
-                        </div>
-               </div>
-               </Form>
-        </div>
+             <Form className ="row">
+              <Form.Group controlId="exampleForm.ControlInput1" className = "col-md-6 my-auto">
+                  <Row>
+                    <Form.Label className="col-5 my-auto">Birthday</Form.Label>
+                    <Form.Control className ="col-5"type="birthday" placeholder="MM/DD/YYYY" />
+
+                  </Row>
+                </Form.Group>
+                        {children}
+             </Form>
     )
 }
 

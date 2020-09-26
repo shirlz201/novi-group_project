@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Card } from "react-bootstrap"
 import ContactForm from "../components/AddContactCard"
 import Interest from "../components/AddInterest";
 import Sidebar from "../components/Sidebar"
@@ -24,34 +24,28 @@ function AddContact() {
                     <Sidebar />
                 </Col>
 
-                <Col md={9}>
-                    <Row>
-                        <Col>
-                            <AddProfileImage/>
-                        </Col>
-                        <Col>
-                            <ContactForm />
-                        </Col>
-                    </Row>
-
-                    {/* {console.log(birthday)} */}
-                    <BirthdayNotification
-                        birthday={birthday}
-                        setBirthday={setBirthday}
-                        bdayReminder_1={bdayReminder_1}
-                        setBdayReminder_1={setBdayReminder_1}
-                        bdayReminder_5={bdayReminder_5}
-                        setBdayReminder_5={setBdayReminder_5}
-                        bdayReminder_7={bdayReminder_7}
-                        setBdayReminder_7={setBdayReminder_7}
-                        bdayGiftReminder={bdayGiftReminder}
-                        setBdayGiftReminder={setBdayGiftReminder}
-                        bdayTextReminder={bdayTextReminder}
-                        setBdayTextReminder={setBdayTextReminder}
-                    />
-                    {console.log(bdayTextReminder)}
-                    <Holiday />
-                    <Interest />
+                <Col md={8} className="mx-auto">
+                    <Card className="m-4" style={{ paddingLeft: "8%", paddingRight: "8%" }}>
+                        <AddProfileImage />
+                        <ContactForm />
+                        <BirthdayNotification
+                            birthday={birthday}
+                            setBirthday={setBirthday}
+                            bdayReminder_1={bdayReminder_1}
+                            setBdayReminder_1={setBdayReminder_1}
+                            bdayReminder_5={bdayReminder_5}
+                            setBdayReminder_5={setBdayReminder_5}
+                            bdayReminder_7={bdayReminder_7}
+                            setBdayReminder_7={setBdayReminder_7}
+                            bdayGiftReminder={bdayGiftReminder}
+                            setBdayGiftReminder={setBdayGiftReminder}
+                            bdayTextReminder={bdayTextReminder}
+                            setBdayTextReminder={setBdayTextReminder}
+                        />
+                        {console.log(bdayTextReminder)}
+                        {/* <Holiday /> */}
+                        <Interest />
+                    </Card>
                 </Col>
 
             </Row>

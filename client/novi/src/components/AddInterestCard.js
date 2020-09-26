@@ -13,15 +13,15 @@ function AddInterestCard({ id, name, icon, selectedInterests, selected }) {
     console.log(selected);
     if (isSelected === false) {
         return (
-            <button className="btn btn-info" onClick={toggleIsSelected}>
-                <FontAwesomeIcon icon={["fas", icon]} />
+            <button className="btn btn-info my-2" onClick={toggleIsSelected}>
+                <FontAwesomeIcon icon={["fas", icon]} style={{marginRight: "8px"}} />
                 {name}
             </button>
         );
     } else {
         return (
-            <button className="btn btn-light" onClick={toggleIsSelected}>
-                <FontAwesomeIcon icon={["fas", icon]} />
+            <button className="btn btn-light my-2" onClick={toggleIsSelected}>
+                <FontAwesomeIcon icon={["fas", icon]} style={{marginRight: "8px"}}/>
                 {name}
             </button>
         );
