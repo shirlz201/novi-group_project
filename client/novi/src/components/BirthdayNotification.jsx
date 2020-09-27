@@ -4,9 +4,7 @@ import { Row, Col, Card, Button, Collapse, Form } from "react-bootstrap"
 import "./BirthdayNotification.css"
 
 
-function BirthdayNotification({ birthday, setBirthday, bdayReminder_1, setBdayReminder_1,
-    bdayReminder_5, setBdayReminder_5, bdayReminder_7, setBdayReminder_7, bdayGiftReminder, setBdayGiftReminder,
-    bdayTextReminder, setBdayTextReminder, ...props }) {
+function BirthdayNotification({ handleChange, values}) {
 
     //Bootstrap Collapse Box state
     const [open, setOpen] = useState(false);
@@ -14,7 +12,7 @@ function BirthdayNotification({ birthday, setBirthday, bdayReminder_1, setBdayRe
     return (
         
         <Card className = "my-2 birthday-notification p-4">
-            <BirthdayInput setBirthday={setBirthday} birthday={birthday}>
+            <BirthdayInput values={values} handleChange={handleChange} >
                 <Col md={3} className="my-auto">
                     {/* Collapse Button */}
                     <Button
@@ -36,32 +34,37 @@ function BirthdayNotification({ birthday, setBirthday, bdayReminder_1, setBdayRe
                                         className="col-2"
                                         type="checkbox"
                                         label="1 day"
-                                        value={bdayReminder_1}
-                                        onChange={(e) => setBdayReminder_1(e.target.value)} />
+                                        name="bdayReminder.oneDay"
+                                        value={values.bdayReminder.oneDay}
+                                        onChange={handleChange} />
                                     <Form.Check
                                         className="col-2"
                                         type="checkbox"
                                         label="5 day"
-                                        value={bdayReminder_5}
-                                        onChange={(e) => setBdayReminder_5(e.target.value)} />
+                                        name="bdayReminder.fiveDay"
+                                        value={values.bdayReminder.fiveDay}
+                                        onChange={handleChange} />
                                     <Form.Check
                                         className="col-2"
                                         type="checkbox"
                                         label="7 day"
-                                        value={bdayReminder_7}
-                                        onChange={(e) => setBdayReminder_7(e.target.value)} />
+                                        name="bdayReminder.sevenDay"
+                                        value={values.bdayReminder.sevenDay}
+                                        onChange={handleChange} />
                                     <Form.Check
                                         className="col-2"
                                         type="checkbox"
                                         label="Buy Gift"
-                                        value={bdayGiftReminder}
-                                        onChange={(e) => setBdayGiftReminder(e.target.value)} />
+                                        name="bdayReminder.sendGift"
+                                        value={values.bdayReminder.sendGift}
+                                        onChange={handleChange} />
                                     <Form.Check
                                         className="col-2"
                                         type="checkbox"
                                         label="Send Text"
-                                        value={bdayTextReminder}
-                                        onChange={setBdayTextReminder} />
+                                        name="bdayReminder.sendText"
+                                        value={values.bdayReminder.sendText}
+                                        onChange={handleChange} />
                                 </Form.Group>
                             </Row>
                         </Form>

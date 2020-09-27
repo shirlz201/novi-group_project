@@ -8,7 +8,7 @@ import AddInterestCardList from "./AddInterestCardList.js";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function AddInterestModal(props) {
+function AddInterestModal({handleChange, values, ...props}) {
     const [newInterestList, setNewInterestList] = useState([]);
     const updateNewInterestList = () => {
         setNewInterestList();
@@ -32,6 +32,8 @@ function AddInterestModal(props) {
                     allInterests={props.allInterests}
                     selectedInterests={props.selectedInterests}
                     updateNewInterestList={updateNewInterestList}
+                    handleChange = {handleChange}
+                    values = {values}
                 />
             </Modal.Body>
 

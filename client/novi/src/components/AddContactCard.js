@@ -3,30 +3,51 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {Card, Row} from 'react-bootstrap'
 
-function AddContactCard({ }) {
+function AddContactCard({values, handleChange}) {
 
     return (
         
             <Form>
                 <Row>
+                {/* To use the Formik values we need to set the form.control name, value, and onChange props  */}
                 <Form.Group className ="col-6" controlId="exampleForm.ControlInput1">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control type="firstName" placeholder="First name" />
+                    <Form.Control 
+                        name ="firstName"
+                        type="firstName" 
+                        placeholder="First name"
+                        value={values.firstName}
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className ="col-6"  controlId="exampleForm.ControlInput1">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="lastName" placeholder="Last name" />
+                    <Form.Control
+                        name="lastName" 
+                        type="lastName" 
+                        placeholder="Last name"
+                        value={values.lastName}
+                        onChange={handleChange}/>
                 </Form.Group>
 
                 </Row>
                <Row>
                <Form.Group className ="col-6"  controlId="exampleForm.ControlInput1">
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control type="phoneNumber" placeholder="(000)000-0000" />
+                    <Form.Control 
+                        name="phoneNumber"
+                        type="phoneNumber" 
+                        placeholder="(000)000-0000"
+                        value={values.phoneNumber}
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group className ="col-6" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="example@gmail.com" />
+                    <Form.Control 
+                        name="email"
+                        type="email" 
+                        placeholder="example@gmail.com" 
+                        value={values.email}
+                        onChange={handleChange}/>
                 </Form.Group>
 
                </Row>

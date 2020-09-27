@@ -28,7 +28,7 @@ const selectedInterestsDB = [
     { id: 6, name: "Computer", icon: "desktop" },
 ];
 
-function Interest() {
+function Interest({handleChange, values}) {
     //Modal state
     const [showAddInterestModal, setShowAddInterestModal] = useState(false);
     //to poss into AddButton
@@ -64,6 +64,8 @@ function Interest() {
                     allInterests={allInterestsDB}
                     selectedInterests={selectedInterests}
                     updateSelectedInterests={updateSelectedInterests}
+                    handleChange ={handleChange}
+                    values ={values}
                 />
             </div>
             </Form>
