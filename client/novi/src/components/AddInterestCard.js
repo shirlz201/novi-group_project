@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {useFormikContext} from "formik"
 
 //icons
@@ -18,6 +18,7 @@ function AddInterestCard({ id, name, icon, selectedInterests, selected, interest
     const toggleIsSelected = () => {
         setIsSelected(!isSelected)
     }
+    
     const removeInterest = (name) =>{
         toggleIsSelected()
         // filter by name
@@ -33,11 +34,17 @@ function AddInterestCard({ id, name, icon, selectedInterests, selected, interest
          //update the interests in the state of the addInterestCardList
         setInterests(prev => [...prev, name])
         //update the interests in the formik object
-        setFieldValue("interest", interests)
+        // console.log(interests)
+        // setFieldValue("interest", interests)
     }
 
+    useEffect( 
+        () => {
+            setFieldValue("interest", interests)
+        }, [interests]);
 
-    console.log(interests);
+   
+    // console.log(interests);
     if (isSelected === false) {
         return (
             <button 

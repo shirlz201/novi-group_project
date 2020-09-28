@@ -39,7 +39,7 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
         )
     };
     
-    console.log("test" + isSelect(1))
+    // console.log("test" + isSelect(1))
     return (
         <div className="col-12">
             <div className="row">
@@ -51,8 +51,8 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
                             selected={isSelect(interest.id)}
                             
                             // to save the interests to the formik object
-                            interests={interests}
-                            setInterests={setInterests}
+                            interests = {interests}
+                            setInterests = {setInterests}
                             // selected={interest.selected}
                             {...interest}
                         />
