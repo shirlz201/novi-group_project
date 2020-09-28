@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useFormikContext} from "formik"
 
 //icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,20 +8,50 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas);
 console.log(fas);
-function AddInterestCard({ id, name, icon, selectedInterests, selected }) {
+function AddInterestCard({ id, name, icon, selectedInterests, selected, interests, setInterests }) {
+    //value and helper method from Formik context
+    const { values, setFieldValue } = useFormikContext();
+    
     const [isSelected, setIsSelected] = useState(false);
-    const toggleIsSelected = () => setIsSelected(!isSelected);
-    console.log(selected);
+   
+
+    const toggleIsSelected = () => {
+        setIsSelected(!isSelected)
+    }
+    const removeInterest = (name) =>{
+        toggleIsSelected()
+        // filter by name
+        const newList = values.interest.filter((item) => item !== name);
+        //save the interests in the state of the addInterestCardList
+        setInterests(newList)
+        //save the interests in the formik object
+        setFieldValue("interest",newList); 
+    }
+
+    const addInterest = (name) =>{
+        toggleIsSelected()
+         //update the interests in the state of the addInterestCardList
+        setInterests(prev => [...prev, name])
+        //update the interests in the formik object
+        setFieldValue("interest", interests)
+    }
+
+
+    console.log(interests);
     if (isSelected === false) {
         return (
-            <button className="btn btn-info my-2" onClick={toggleIsSelected}>
+            <button 
+            className="btn btn-info my-2" 
+            onClick={()=>addInterest(name)}>
                 <FontAwesomeIcon icon={["fas", icon]} style={{marginRight: "8px"}} />
                 {name}
             </button>
         );
     } else {
         return (
-            <button className="btn btn-light my-2" onClick={toggleIsSelected}>
+            <button 
+            className="btn btn-light my-2" 
+            onClick={() => removeInterest(name)}>
                 <FontAwesomeIcon icon={["fas", icon]} style={{marginRight: "8px"}}/>
                 {name}
             </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import AddInterestCard from "./AddInterestCard.js";
+import {useState} from "react"
 
 function AddInterestCardList({allInterests, selectedInterests, updateSelectedInterests,}) {
     // let newArray = allInterests.map((interest) => {
@@ -24,6 +25,11 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
     //     })
     // });
     // console.log(newArray)
+    
+    // this may need to be moved up but used to save with formik
+    const [ interests, setInterests] =useState([])
+
+
     const isSelect = (id) => { 
         selectedInterests.forEach(selectedInterest => {
             if (selectedInterest.id == id) {
@@ -43,6 +49,10 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
                             key={interest.id}
                             selectedInterests={selectedInterests}
                             selected={isSelect(interest.id)}
+                            
+                            // to save the interests to the formik object
+                            interests={interests}
+                            setInterests={setInterests}
                             // selected={interest.selected}
                             {...interest}
                         />
