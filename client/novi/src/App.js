@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import Home from "./pages/Home"
 import AddContact from "./pages/AddContact"
 import Container from 'react-bootstrap/Container';

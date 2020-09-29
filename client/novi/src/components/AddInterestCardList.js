@@ -2,7 +2,7 @@ import React from "react";
 import AddInterestCard from "./AddInterestCard.js";
 import {useState} from "react"
 
-function AddInterestCardList({allInterests, selectedInterests, updateSelectedInterests,}) {
+function AddInterestCardList({allInterests, selectedInterests, setSelectedInterests}) {
     // let newArray = allInterests.map((interest) => {
     //     selectedInterests.forEach(selectedInterest => {
     //         if (selectedInterest.id == interest.id) {
@@ -27,19 +27,18 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
     // console.log(newArray)
     
     // this may need to be moved up but used to save with formik
-    const [ interests, setInterests] =useState([])
 
 
-    const isSelect = (id) => { 
-        selectedInterests.forEach(selectedInterest => {
-            if (selectedInterest.id == id) {
-                return true;
-            }
-            return false;}
-        )
-    };
+    // const isSelect = (id) => { 
+    //     selectedInterests.forEach(selectedInterest => {
+    //         if (selectedInterest.id == id) {
+    //             return true;
+    //         }
+    //         return false;}
+    //     )
+    // };
     
-    // console.log("test" + isSelect(1))
+    // // console.log("test" + isSelect(1))
     return (
         <div className="col-12">
             <div className="row">
@@ -48,13 +47,9 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
                         <AddInterestCard
                             key={interest.id}
                             selectedInterests={selectedInterests}
-                            selected={isSelect(interest.id)}
-                            
-                            // to save the interests to the formik object
-                            interests = {interests}
-                            setInterests = {setInterests}
-                            // selected={interest.selected}
-                            {...interest}
+                            //passing in the interest object as a prop
+                            interest = {interest}
+                            setSelectedInterests = {setSelectedInterests}
                         />
                     </div>
                 ))}
