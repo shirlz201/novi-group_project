@@ -1,7 +1,8 @@
 import React from "react";
 import AddInterestCard from "./AddInterestCard.js";
+import {useState} from "react"
 
-function AddInterestCardList({allInterests, selectedInterests, updateSelectedInterests,}) {
+function AddInterestCardList({allInterests, selectedInterests, setSelectedInterests}) {
     // let newArray = allInterests.map((interest) => {
     //     selectedInterests.forEach(selectedInterest => {
     //         if (selectedInterest.id == interest.id) {
@@ -24,27 +25,31 @@ function AddInterestCardList({allInterests, selectedInterests, updateSelectedInt
     //     })
     // });
     // console.log(newArray)
-    const isSelect = (id) => { 
-        selectedInterests.forEach(selectedInterest => {
-            if (selectedInterest.id == id) {
-                return true;
-            }
-            return false;}
-        )
-    };
     
-    console.log("test" + isSelect(1))
+    // this may need to be moved up but used to save with formik
+
+
+    // const isSelect = (id) => { 
+    //     selectedInterests.forEach(selectedInterest => {
+    //         if (selectedInterest.id == id) {
+    //             return true;
+    //         }
+    //         return false;}
+    //     )
+    // };
+    
+    // // console.log("test" + isSelect(1))
     return (
         <div className="col-12">
             <div className="row">
                 {allInterests.map((interest) => (
-                    <div className="col-3">
+                    <div className="col-auto">
                         <AddInterestCard
                             key={interest.id}
                             selectedInterests={selectedInterests}
-                            selected={isSelect(interest.id)}
-                            // selected={interest.selected}
-                            {...interest}
+                            //passing in the interest object as a prop
+                            interest = {interest}
+                            setSelectedInterests = {setSelectedInterests}
                         />
                     </div>
                 ))}

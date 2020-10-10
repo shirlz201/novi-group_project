@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import Home from "./pages/Home"
 import AddContact from "./pages/AddContact"
 import Container from 'react-bootstrap/Container';
 import Navbar from "./components/TopBar";
 import CreateUser from "./components/create-user.component";
+import Sidebar from './components/Sidebar';
 import CreateContactForm from "./components/AddContactCard";
-import AddProfilePic from "./components/AddProfilePic";
+
 
 function App() {
    //useRef hook is used
@@ -37,6 +39,9 @@ function App() {
                     </Route>
                     <Route path="/addContact">
                         <AddContact />
+                    </Route>
+                    <Route path="/">
+                        <Home /> 
                     </Route>
                     {/* <Route path="/user" component={CreateUser} /> */}
                 </Switch>

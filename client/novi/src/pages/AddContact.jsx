@@ -1,15 +1,34 @@
-import React from "react"
-import Birthday from "../components/Birthday"
+import React, { useState } from "react"
+import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
-import Container from "react-bootstrap/Container"
+import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
 import ContactForm from "../components/AddContactCard"
-
 import Interest from "../components/AddInterest";
+import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
 import ProfileCard from "../components/ProfileCard";
-
+import AddProfileImage from "../components/AddProfileImage";
+import {Formik} from  "formik"
 
 function AddContact() {
+    const [birthday, setBirthday] = useState(new Date())
+    const [bdayReminder_1, setBdayReminder_1] = useState(false)
+    const [bdayReminder_5, setBdayReminder_5] = useState(false)
+    const [bdayReminder_7, setBdayReminder_7] = useState(false)
+    const [bdayGiftReminder, setBdayGiftReminder] = useState(false)
+    const [bdayTextReminder, setBdayTextReminder] = useState(false)
+
+    // const formik = useFormik({
+    //     initialValues:{
+    //         firstName: "Matias",
+    //         lastName: "",
+    //         phoneNumber: "",
+    //         email:""
+
+
+    //     }
+    // })
+
     return (
         <Container>
             <TopBar/>
@@ -18,8 +37,76 @@ function AddContact() {
             <Holiday />
             <ContactForm />
             <Interest />
+        <Formik    
+        initialValues={{
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email:"",
+            birthday: new Date(),
+            bdayReminder: {
+                oneDay: false,
+                fiveDay: false,
+                sevenDay: false,
+                sendGift: false,
+                sendText: false
+            },
+            interest:[]
+        }}
+        onSubmit = {(data, {setSubmitting})=> {
+            // To disable submit button when submitting
+            setSubmitting(true)
+            console.log("Submit: ", data)
+            setSubmitting(false)
+        }}>
+
+         {/* We need to provide the values and methods from the Formik context to the form components */}
+        {({values, handleChange, handleBlur, handleSubmit, isSubmitting}) =>(
+
+            <Container fluid className="mx-0 px-0">
+            {/* {console.log(values)} */}
+            <TopBar />
+            <Row>
+                <Col md={2} sm={12} style={{ width: "10%" }}>
+                    <Sidebar />
+                </Col>
+
+                <Col md={8} className="mx-auto">
+                    <Card className="m-4" style={{ paddingLeft: "8%", paddingRight: "8%" }}>
+                        
+                        <Form onSubmit ={handleSubmit}>
+                        <AddProfileImage values = {values} />
+                        
+                        <ContactForm values = {values} handleChange ={handleChange}/>
+                        
+                        <BirthdayNotification
+                            values = {values} 
+                            handleChange ={handleChange}
+                        />
+                        {console.log(bdayTextReminder)}
+                        {/* <Holiday /> */}
+                        <Interest 
+                         values = {values} 
+                         handleChange ={handleChange}
+                        />
+
+                        {/* Button is disabled when submitting to prevent spam using the formik setSubmitting/isSubmitting
+                         helper methods */}
+                        <Button disabled ={isSubmitting} variant="primary" type="submit">Submit</Button>
+                    </Form>
+                    </Card>
+
+                </Col>
+
+            </Row>
+
+            
         </Container>
+
+        )}    
         
+        </Formik>
+
     )
 }
 

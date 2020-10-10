@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //import component
 import InterestCardList from "./InterestCardList.js";
 import AddButton from "./AddButton.js";
 import AddInterestModal from "./AddInterestModal.js";
 
+//import boostrap components
+import { Card, Form, Col } from 'react-bootstrap'
+
 //import icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fas);
+
 
 const allInterestsDB = [
     { id: 1, name: "Basketball", icon: "basketball-ball" },
@@ -24,39 +28,51 @@ const selectedInterestsDB = [
     { id: 6, name: "Computer", icon: "desktop" },
 ];
 
-function Interest() {
+function Interest({ handleChange, values }) {
     //Modal state
     const [showAddInterestModal, setShowAddInterestModal] = useState(false);
-    //to poss into AddButton
+    //to pass into AddButton
     const updateShowAddInterestModal = () => setShowAddInterestModal(true);
 
     //interest list state
-    const [selectedInterests, setSelectedInterests] = useState(
-        selectedInterestsDB
-    );
-    const updateSelectedInterests = (selectedInterests) => {
-        setSelectedInterests(selectedInterests);
-    };
+    const [allInterests, setAllInterests] = useState([]);
+    const [selectedInterests, setSelectedInterests] = useState([])
+
+    //Later, the useEffect will include fetch or similar method in Axios to get data from the backend. Right now 
+    //setting allInterests when this component first mounts - empty bracket as the second parameter
+    useEffect(() => {
+        setAllInterests(allInterestsDB)
+    }, [])
+
 
     return (
-        <div className="container">
-            <div className="row">
-                <h1>Interest</h1>
+        <Card className="my-3 p-4 interest">
+            <Form>
+                <div className="row mb-3">
+                    <Col>
+                        <Form.Label>Interest</Form.Label>
+                    </Col>
+                    <Col>
+                        <AddButton link={updateShowAddInterestModal} />
+                    </Col>
+                </div>
+                <div className="row">
+                    {/* The selected interests displayed on the add contact page */}
+                    <InterestCardList selectedInterests={selectedInterests} />
 
-                <AddButton link={updateShowAddInterestModal} />
-            </div>
-            <div className="row">
-                <InterestCardList selectedInterests={selectedInterests} />
-
-                <AddInterestModal
-                    show={showAddInterestModal}
-                    onHide={() => setShowAddInterestModal(false)}
-                    allInterests={allInterestsDB}
-                    selectedInterests={selectedInterests}
-                    updateSelectedInterests={updateSelectedInterests}
-                />
-            </div>
-        </div>
+                    {/* popup */}
+                    <AddInterestModal
+                        show={showAddInterestModal}
+                        onHide={() => setShowAddInterestModal(false)}
+                        allInterests={allInterests}
+                        selectedInterests={selectedInterests}
+                        setSelectedInterests={setSelectedInterests}
+                        // handleChange={handleChange}
+                        // values={values}
+                    />
+                </div>
+            </Form>
+        </Card>
     );
 }
 

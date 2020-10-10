@@ -6,7 +6,7 @@ function InterestCardList({ selectedInterests }) {
         <div className="col-12">
             <div className="row">
                 {selectedInterests.map((interest) => (
-                    <div className="col-3">
+                    <div className="col-auto mb-3">
                         <InterestCard key={interest.id} {...interest} />
                     </div>
                 ))}
