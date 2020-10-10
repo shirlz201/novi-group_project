@@ -4,9 +4,9 @@ import { Card, ListGroup } from "react-bootstrap"
 function profileCard() {
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card className=" w-10 float-right" style={{ width: '18rem' }}>
                 <Card.Title>Hi Mark!</Card.Title>
-                <Card.Header>Featured</Card.Header>
+                {/* <Card.Header>Featured</Card.Header> */}
                 <ListGroup variant="flush">
                     <ListGroup.Item>My Contacts</ListGroup.Item>
                     <ListGroup.Item>My Events</ListGroup.Item>
