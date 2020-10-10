@@ -3,6 +3,7 @@ import { Navbar, Nav, Button, Form, FormControl, Card, ListGroup } from "react-b
 import BellIcon from "react-bell-icon"
 // import Avatar, { ConfigProvider } from 'react-avatar';
 import Avatar, { ConfigProvider, createAvatarComponent, TwitterSource } from 'react-avatar';
+import profileCard from "./ProfileCard";
 
 
 
@@ -32,10 +33,10 @@ function TopBar() {
                 <Navbar>
                     <a href="#">
                         <Avatar facebookId="100008343750912"
-                            size="60" round={true} name="Mark Otto" onClick={Card} />
+                            size="60" round={true} name="Mark Otto" onClick={profileCard} />
                     </a>
 
-                    <Card style={{ width: '18rem' }}>
+                    {/* <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Title>Hi Mark!</Card.Title>
                         <Card.Header>Featured</Card.Header>
@@ -44,7 +45,7 @@ function TopBar() {
                             <ListGroup.Item>My Events</ListGroup.Item>
                             <a href="#"><ListGroup.Item>Sign Out</ListGroup.Item></a>
                         </ListGroup>
-                    </Card>
+                    </Card> */}
 
 
                 </Navbar>
