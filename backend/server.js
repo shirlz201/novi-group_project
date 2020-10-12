@@ -39,9 +39,9 @@ to perform CRUD operations
 app.use("/api", eventRoutes);
 app.use("/api", holidayRoutes)
 app.use("/api", reminderRoutes)
-app.use('/interests', interestsRouter);
+app.use('/api', interestsRouter);
 app.use('/users', usersRouter);
-app.use('/contacts', contactsRouter);
+app.use('/api', contactsRouter);
 app.use("/api", addressesRouter);
 app.use("/api", birthdayRouter);
 

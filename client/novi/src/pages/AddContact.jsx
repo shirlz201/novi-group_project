@@ -7,6 +7,7 @@ import Interest from "../components/AddInterest";
 import AddHoliday from "../components/AddHoliday";
 import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
+import ProfileCard from "../components/ProfileCard";
 import AddProfileImage from "../components/AddProfileImage";
 import {Formik} from  "formik"
 
@@ -30,6 +31,13 @@ function AddContact() {
     // })
 
     return (
+        <Container>
+            <TopBar/>
+            <ProfileCard/>
+            <Birthday />
+            <Holiday />
+            <ContactForm />
+            <Interest />
         <Formik    
         initialValues={{
             firstName: "",
