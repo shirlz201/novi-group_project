@@ -41,7 +41,7 @@ function AddInterestCard({ interest, selectedInterests, setSelectedInterests }) 
 
 
     //checks to see if the interest is already in the selectedInterests state
-    //returns a boolean true if thr array contains the interest
+    //returns a boolean true if the array contains the interest
     const alreadySelected = selectedInterests.some(item => item.id === interest.id)
 
     if (alreadySelected) {

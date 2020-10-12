@@ -2,14 +2,15 @@ import React, { useState } from "react"
 import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
-import ContactForm from "../components/AddContactCard"
+// import ContactForm from "../components/AddContactCard"
 import Interest from "../components/AddInterest";
 import AddHoliday from "../components/AddHoliday";
 import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
-import ProfileCard from "../components/ProfileCard";
+import ProfileCard from "../components/profileCard";
 import AddProfileImage from "../components/AddProfileImage";
 import {Formik} from  "formik"
+import Birthday from "../components/BirthdayInput";
 
 function AddContact() {
     const [birthday, setBirthday] = useState(new Date())
@@ -118,7 +119,8 @@ function AddContact() {
         
         </Formik>
 
+    </Container>
     )
 }
 
-export default AddContact
+export default AddContact;
