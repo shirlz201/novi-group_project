@@ -9,6 +9,7 @@ import Navbar from "./components/TopBar";
 import CreateUser from "./components/create-user.component";
 import Sidebar from './components/Sidebar';
 import CreateContactForm from "./components/AddContactCard";
+import AddEvent from "./pages/AddEvent"
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
                     </Route>
                     <Route path="/addContact">
                         <AddContact />
+                    </Route>
+                    <Route path="/addEvent">
+                        <AddEvent />
                     </Route>
                     <Route path="/">
                         <Home /> 
