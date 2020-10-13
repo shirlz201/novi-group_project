@@ -4,6 +4,7 @@ import BellIcon from "react-bell-icon"
 // import Avatar, { ConfigProvider } from 'react-avatar';
 import Avatar, { ConfigProvider, createAvatarComponent, TwitterSource } from 'react-avatar';
 import ProfileToggle from "./ProfileToggle"
+import profileCard from "./profileCard"
 
 
 
@@ -18,8 +19,8 @@ function TopBar() {
             </Form>
 
             <Nav.Link href="#notifications">
-                <span class="fa-stack fa-2x">
-                <i class="fas fa-circle fa-stack-2x"></i>
+                <span class="fa-stack" style={{ fontSize: "1.5em"}}>
+                 <i class="fas fa-circle fa-stack-2x" style={{ color: "rgb(0,0,0,0.2)"}}></i>
                  <i class="fas fa-bell fa-stack-1x fa-inverse"></i>
                 </span>
             </Nav.Link>

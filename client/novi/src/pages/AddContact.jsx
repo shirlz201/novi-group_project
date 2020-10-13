@@ -2,14 +2,16 @@ import React, { useState } from "react"
 import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
-import ContactForm from "../components/AddContactCard"
+// import ContactForm from "../components/AddContactCard"
 import Interest from "../components/AddInterest";
+import AddHoliday from "../components/AddHoliday";
 import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
 import AddProfileImage from "../components/AddProfileImage";
-import { Formik } from "formik"
 import ImageUploader from 'react-images-upload';
-
+import ProfileCard from "../components/profileCard";
+import {Formik} from  "formik"
+import Birthday from "../components/BirthdayInput";
 
 function AddContact() {
     const [birthday, setBirthday] = useState(new Date())
@@ -48,7 +50,10 @@ function AddContact() {
                 sendGift: false,
                 sendText: false
             },
+            holidays:[],
             interest:[]
+
+
         }}
         onSubmit = {(data, {setSubmitting})=> {
             // To disable submit button when submitting
@@ -69,7 +74,14 @@ function AddContact() {
                 </Col>
 
                 <Col md={8} className="mx-auto">
-                    <Card className="m-4" style={{ paddingLeft: "8%", paddingRight: "8%" }}>
+
+                    <Card className="m-4" 
+                    style={{ 
+                    paddingLeft: "8%", 
+                    paddingRight: "8%", 
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+                    transition: "all 0.3s cubic-bezier(.25,.8,.25,1)" }}>
+                        
 
                         <Form onSubmit ={handleSubmit}>
                             <br />
@@ -85,6 +97,8 @@ function AddContact() {
                         />
                         {console.log(bdayTextReminder)}
                         {/* <Holiday /> */}
+                        <AddHoliday/>
+
                         <Interest 
                          values = {values} 
                          handleChange ={handleChange}
@@ -107,7 +121,8 @@ function AddContact() {
 
         </Formik>
 
+    </Container>
     )
 }
 
-export default AddContact
+export default AddContact;
