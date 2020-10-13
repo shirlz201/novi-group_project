@@ -31,13 +31,16 @@ function AddContact() {
     // })
 
     return (
-        <Container>
-            <TopBar/>
+
+        <>
+        
+            {/* <TopBar/>
             <ProfileCard/>
-            <Birthday />
+            <BirthdayNotification />
             <Holiday />
             <ContactForm />
-            <Interest />
+            <Interest /> */}
+       
         <Formik    
         initialValues={{
             firstName: "",
@@ -117,6 +120,7 @@ function AddContact() {
         )}    
         
         </Formik>
+        </>
 
     )
 }
