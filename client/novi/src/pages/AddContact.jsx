@@ -6,9 +6,10 @@ import ContactForm from "../components/AddContactCard"
 import Interest from "../components/AddInterest";
 import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
-import ProfileCard from "../components/ProfileCard";
 import AddProfileImage from "../components/AddProfileImage";
-import {Formik} from  "formik"
+import { Formik } from "formik"
+import ImageUploader from 'react-images-upload';
+
 
 function AddContact() {
     const [birthday, setBirthday] = useState(new Date())
@@ -29,14 +30,10 @@ function AddContact() {
     //     }
     // })
 
+    
+
     return (
-        <Container>
-            <TopBar/>
-            <ProfileCard/>
-            <Birthday />
-            <Holiday />
-            <ContactForm />
-            <Interest />
+      
         <Formik    
         initialValues={{
             firstName: "",
@@ -73,12 +70,15 @@ function AddContact() {
 
                 <Col md={8} className="mx-auto">
                     <Card className="m-4" style={{ paddingLeft: "8%", paddingRight: "8%" }}>
-                        
+
                         <Form onSubmit ={handleSubmit}>
-                        <AddProfileImage values = {values} />
-                        
+                            <br />
+                        <AddProfileImage values = {values}
+                         handleChange ={handleChange}
+                        />
+
                         <ContactForm values = {values} handleChange ={handleChange}/>
-                        
+
                         <BirthdayNotification
                             values = {values} 
                             handleChange ={handleChange}
@@ -100,11 +100,11 @@ function AddContact() {
 
             </Row>
 
-            
+
         </Container>
 
         )}    
-        
+
         </Formik>
 
     )

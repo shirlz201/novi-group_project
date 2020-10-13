@@ -30,27 +30,7 @@ function TopBar() {
             </Navbar.Text>
             </Nav.Item>
 
-            <ConfigProvider colors={['red', 'green', 'blue']}>
-                <Navbar>
-                    <a href="#">
-                        <Avatar facebookId="100008343750912"
-                            size="60" round={true} name="Mark Otto" onClick={profileCard} />
-                    </a>
-
-                    {/* <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Title>Hi Mark!</Card.Title>
-                        <Card.Header>Featured</Card.Header>
-                        <ListGroup variant="flush">
-                            <ListGroup.Item>My Contacts</ListGroup.Item>
-                            <ListGroup.Item>My Events</ListGroup.Item>
-                            <a href="#"><ListGroup.Item>Sign Out</ListGroup.Item></a>
-                        </ListGroup>
-                    </Card> */}
-
-
-                </Navbar>
-            </ConfigProvider>
+   
             <Nav.Item>
 
             <ProfileToggle/>
