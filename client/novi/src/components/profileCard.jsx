@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, ListGroup } from "react-bootstrap"
 
-function profileCard() {
+function ProfileCard() {
     return (
         <div>
             <Card className=" w-10 float-right" style={{ width: '18rem' }}>
@@ -16,4 +16,4 @@ function profileCard() {
         </div>
     )
 }
-export default profileCard
+export default ProfileCard
