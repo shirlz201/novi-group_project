@@ -4,7 +4,11 @@ import BellIcon from "react-bell-icon"
 // import Avatar, { ConfigProvider } from 'react-avatar';
 import Avatar, { ConfigProvider, createAvatarComponent, TwitterSource } from 'react-avatar';
 import ProfileToggle from "./ProfileToggle"
+<<<<<<< HEAD
 import ProfileCard from "./ProfileCard"
+=======
+import profileCard from "./profileCard"
+>>>>>>> ca684c9f2a348cb4b97e3a690b1fb6b006756cf2
 
 
 

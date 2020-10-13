@@ -39,7 +39,7 @@ to perform CRUD operations
 app.use("/api", eventRoutes);
 app.use("/api", holidayRoutes)
 app.use("/api", reminderRoutes)
-app.use('/api', interestsRouter);
+app.use('/interest', interestsRouter);
 app.use('/users', usersRouter);
 app.use('/api', contactsRouter);
 app.use("/api", addressesRouter);
