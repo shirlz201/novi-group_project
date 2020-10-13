@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Home from "./pages/Home"
 import AddContact from "./pages/AddContact"
 import Container from 'react-bootstrap/Container';
@@ -10,26 +9,15 @@ import CreateUser from "./components/create-user.component";
 import Sidebar from './components/Sidebar';
 import CreateContactForm from "./components/AddContactCard";
 import AddEvent from "./pages/AddEvent"
+import { config } from '@fortawesome/fontawesome-svg-core';
+
 
 
 function App() {
-   //useRef hook is used
-    const uploadedImage = React.useRef(null);
-    const handleImageUpload = e => {
-        const [file] = e.target.files;
-        if (file) {
-            /* FR constructor is used to read the content of the file & attached to content 
-            to the img attached REF to */
-            const reader = new FileReader();
-            const { current } = uploadedImage;
-            current.file = file;
-            reader.onload = (e) => {
-                current.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        }
-    }
-  
+
+
+
+
     return (
         <Router>
                 <Switch>
@@ -55,7 +43,7 @@ function App() {
 
 
 
-                {/* <div
+{/* <div
                     style={{
                         display: "flex",
                         flexDirection: "column",
@@ -91,10 +79,10 @@ function App() {
                     </div>
                         Click to upload Image
                 // </div> */
-                
-            // </Router>
-        // );
 
-    }
+    // </Router>
+    // );
 
-    export default App;
+}
+
+export default App;

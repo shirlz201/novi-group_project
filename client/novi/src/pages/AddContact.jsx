@@ -2,14 +2,16 @@ import React, { useState } from "react"
 import BirthdayNotification from "../components/BirthdayNotification"
 import Holiday from "../components/Holiday"
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
-import ContactForm from "../components/AddContactCard"
+// import ContactForm from "../components/AddContactCard"
 import Interest from "../components/AddInterest";
 import AddHoliday from "../components/AddHoliday";
 import Sidebar from "../components/Sidebar"
 import TopBar from "../components/TopBar";
-// import ProfileCard from "../components/ProfileCard";
 import AddProfileImage from "../components/AddProfileImage";
-import { Formik } from "formik"
+import ImageUploader from 'react-images-upload';
+import ProfileCard from "../components/profileCard";
+import {Formik} from  "formik"
+import Birthday from "../components/BirthdayInput";
 
 function AddContact() {
     const [birthday, setBirthday] = useState(new Date())
@@ -30,79 +32,88 @@ function AddContact() {
     //     }
     // })
 
+    
+
     return (
-            <>
-            {/* <TopBar />
-            <ProfileCard />
+
+        <>
+        
+            {/* <TopBar/>
+            <ProfileCard/>
             <BirthdayNotification />
             <Holiday />
             <ContactForm />
             <Interest /> */}
-            <Formik
-                initialValues={{
-                    firstName: "",
-                    lastName: "",
-                    phoneNumber: "",
-                    email: "",
-                    birthday: new Date(),
-                    bdayReminder: {
-                        oneDay: false,
-                        fiveDay: false,
-                        sevenDay: false,
-                        sendGift: false,
-                        sendText: false
-                    },
-                    holidays: [],
-                    interest: []
+       
+        <Formik    
+        initialValues={{
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email:"",
+            birthday: new Date(),
+            bdayReminder: {
+                oneDay: false,
+                fiveDay: false,
+                sevenDay: false,
+                sendGift: false,
+                sendText: false
+            },
+            holidays:[],
+            interest:[]
 
 
-                }}
-                onSubmit={(data, { setSubmitting }) => {
-                    // To disable submit button when submitting
-                    setSubmitting(true)
-                    console.log("Submit: ", data)
-                    setSubmitting(false)
-                }}>
+        }}
+        onSubmit = {(data, {setSubmitting})=> {
+            // To disable submit button when submitting
+            setSubmitting(true)
+            console.log("Submit: ", data)
+            setSubmitting(false)
+        }}>
 
-                {/* We need to provide the values and methods from the Formik context to the form components */}
-                {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+         {/* We need to provide the values and methods from the Formik context to the form components */}
+        {({values, handleChange, handleBlur, handleSubmit, isSubmitting}) =>(
 
-                    <Container fluid className="mx-0 px-0">
-                        {/* {console.log(values)} */}
-                        <TopBar />
-                        <Row>
-                            <Col md={2} sm={12} style={{ width: "10%" }}>
-                                <Sidebar />
-                            </Col>
+            <Container fluid className="mx-0 px-0">
+            {/* {console.log(values)} */}
+            <TopBar />
+            <Row>
+                <Col md={2} sm={12} style={{ width: "10%" }}>
+                    <Sidebar />
+                </Col>
 
-                            <Col md={8} className="mx-auto">
-                                <Card className="m-4"
-                                    style={{
-                                        paddingLeft: "8%",
-                                        paddingRight: "8%",
-                                        boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
-                                        transition: "all 0.3s cubic-bezier(.25,.8,.25,1)"
-                                    }}>
+                <Col md={8} className="mx-auto">
 
-                                    <Form onSubmit={handleSubmit}>
-                                        <AddProfileImage values={values} />
+                    <Card className="m-4" 
+                    style={{ 
+                    paddingLeft: "8%", 
+                    paddingRight: "8%", 
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+                    transition: "all 0.3s cubic-bezier(.25,.8,.25,1)" }}>
+                        
 
-                                        <ContactForm values={values} handleChange={handleChange} />
+                        <Form onSubmit ={handleSubmit}>
+                            <br />
+                        <AddProfileImage values = {values}
+                         handleChange ={handleChange}
+                        />
 
-                                        <BirthdayNotification
-                                            values={values}
-                                            handleChange={handleChange}
-                                        />
-                                        {console.log(bdayTextReminder)}
-                                        {/* <Holiday /> */}
-                                        <AddHoliday />
+                        <ContactForm values = {values} handleChange ={handleChange}/>
 
-                                        <Interest
-                                            values={values}
-                                            handleChange={handleChange}
-                                        />
+                        <BirthdayNotification
+                            values = {values} 
+                            handleChange ={handleChange}
+                        />
+                        {console.log(bdayTextReminder)}
+                        {/* <Holiday /> */}
+                        <AddHoliday/>
 
-                                        {/* Button is disabled when submitting to prevent spam using the formik setSubmitting/isSubmitting
+                        <Interest 
+                         values = {values} 
+                         handleChange ={handleChange}
+                        />
+
+                        {/* Button is disabled when submitting to prevent spam using the formik setSubmitting/isSubmitting
                          helper methods */}
                                         <Button disabled={isSubmitting} variant="primary" type="submit">Submit</Button>
                                     </Form>
@@ -122,4 +133,4 @@ function AddContact() {
          )
      }
 
-export default AddContact
+export default AddContact;

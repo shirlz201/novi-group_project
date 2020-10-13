@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import InterestCardList from "./InterestCardList.js";
 import AddButton from "./AddButton.js";
 import AddHolidayModal from "./AddHolidayModal.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //import boostrap components
 import { Card, Form, Col } from 'react-bootstrap'
@@ -15,12 +16,12 @@ library.add(fas);
 
 
 const allHolidaysDB = [
-    { id: 1, name: "Christmas", icon: "basketball-ball" },
-    { id: 2, name: "Thanksgiving", icon: "gamepad" },
-    { id: 3, name: "New Year's Day", icon: "plane" },
-    { id: 4, name: "New Year's Eve", icon: "fish" },
-    { id: 5, name: "Memorial Day", icon: "football-ball" },
-    { id: 6, name: "Valentine's Day", icon: "desktop" },
+    { id: 1, name: "Christmas", icon: "candy-cane", tags:["popular"] },
+    { id: 2, name: "Thanksgiving", icon: "leaf", tags:["popular"]  },
+    { id: 3, name: "New Year's Day", icon: "glass-cheers", tags:["patriotic"] },
+    { id: 4, name: "New Year's Eve", icon: "glass-cheers", tags:["popular"]  },
+    { id: 5, name: "Memorial Day", icon: "ribbon", tags:["patriotic"] },
+    { id: 6, name: "Valentine's Day", icon: "heart", tags:["popular"]  },
 ];
 
 function Interest({ handleChange, values }) {
@@ -53,7 +54,14 @@ function Interest({ handleChange, values }) {
                 </div>
                 <div className="row">
                     {/* The selected interests displayed on the add contact page */}
-                    {/* <InterestCardList selectedHolidays={selectedHolidays} /> */}
+                    {selectedHolidays.map((item) => (
+                        <div className="col-auto mb-3">
+                            <button className="btn btn-info">
+                                <FontAwesomeIcon icon={['fas', item.icon]} style={{ marginRight: "8px" }} />
+                                {item.name}
+                            </button>
+                        </div>
+                    ))}
 
                     {/* popup */}
                     <AddHolidayModal
@@ -61,8 +69,10 @@ function Interest({ handleChange, values }) {
                         onHide={() => setShowAddHolidayModal(false)}
                         allHolidays={allHolidays}
                         setSelectedHolidays={setSelectedHolidays}
-                        // handleChange={handleChange}
-                        // values={values}
+                        selectedHolidays = {selectedHolidays}
+                        allHolidays = {allHolidays}
+                    // handleChange={handleChange}
+                    // values={values}
                     />
                 </div>
             </Form>
