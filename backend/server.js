@@ -10,6 +10,7 @@ const interestsRouter = require('./routes/interests.js');
 const addressesRouter = require('./routes/addresses');
 const birthdayRouter = require('./routes/birthday');
 
+
 require('dotenv').config();
 
 const app = express();
@@ -30,6 +31,36 @@ deprecating the ensureIndex() function */
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
+
+//begins
+//initialize gridfs storage engine
+const multer = require('multer');
+const methodOverride = require('method-override');
+const GridFsStorage = require('multer-gridfs-storage');
+
+//create storage engine
+const storage = new GridFsStorage({
+    url: config.mongoURI,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            //helps encrypt filename before storing it
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketname: 'uploads'
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+
+const upload = multer({ storage });
+// ends
 
 /*=============SERVER API END POINTS=================
 API endpoint routes are added so the server can be used
