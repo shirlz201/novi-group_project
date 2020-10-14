@@ -7,7 +7,8 @@ function Home(props) {
         <div>
             <h1>Home</h1>
             {/* Link is used in react router like anchor <a href=""></a> elements */}
-            <Link to="/AddContact"> Add Contact </Link>
+            <Link to="/AddContact"> Add Contact </Link> <br/>
+            <Link to="/AddEvent">Add Event</Link>
         </div>
     )
 }

@@ -36,7 +36,6 @@ function AddContact() {
 
     return (
 
-
         <>
         
             <TopBar/>
@@ -116,23 +115,22 @@ function AddContact() {
 
                         {/* Button is disabled when submitting to prevent spam using the formik setSubmitting/isSubmitting
                          helper methods */}
-                        <Button disabled ={isSubmitting} variant="primary" type="submit">Submit</Button>
-                    </Form>
-                    </Card>
+                                        <Button disabled={isSubmitting} variant="primary" type="submit">Submit</Button>
+                                    </Form>
+                                </Card>
 
-                </Col>
+                            </Col>
 
-            </Row>
+                        </Row>
 
 
-        </Container>
+                    </Container>
 
-        )}    
+                )}
 
-        </Formik>
-        </>
-
-    )
-}
+            </Formik>
+            </>
+         )
+     }
 
 export default AddContact;
