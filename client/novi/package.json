@@ -20,16 +20,14 @@
     "date-fns": "^2.16.1",
     "dayjs": "^1.9.1",
     "formik": "^2.1.5",
-<<<<<<< HEAD
     "luxon": "^1.25.0",
     "mdbreact": "^4.27.0",
     "moment": "^2.29.1",
-=======
+
     "method-override": "^3.0.0",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
     "fuse.js": "^6.4.1",
->>>>>>> 7fd7dde6ae97f3463baf51191281248c5144e849
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-avatar": "^3.9.7",
