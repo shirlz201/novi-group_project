@@ -42,6 +42,7 @@ function AddInterestCardList({allInterests, selectedInterests, setSelectedIntere
     return (
         <div className="col-12">
             <div className="row">
+                {console.log("TESTING" + allInterests)}
                 {allInterests.map((interest) => (
                     <div className="col-auto">
                         <AddInterestCard

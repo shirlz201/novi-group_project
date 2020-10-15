@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 //import component
 import InterestCardList from "./InterestCardList.js";
 import AddButton from "./AddButton.js";
@@ -14,19 +14,20 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fas);
 
 
-const allInterestsDB = [
-    { id: 1, name: "Basketball", icon: "basketball-ball" },
-    { id: 2, name: "Video Game", icon: "gamepad" },
-    { id: 3, name: "Travel", icon: "plane" },
-    { id: 4, name: "Fishing", icon: "fish" },
-    { id: 5, name: "Football", icon: "football-ball" },
-    { id: 6, name: "Computer", icon: "desktop" },
-];
+// const allInterestsDB = [
+//     { id: 1, name: "Basketball", icon: "basketball-ball" },
+//     { id: 2, name: "Video Game", icon: "gamepad" },
+//     { id: 3, name: "Travel", icon: "plane" },
+//     { id: 4, name: "Fishing", icon: "fish" },
+//     { id: 5, name: "Football", icon: "football-ball" },
+//     { id: 6, name: "Computer", icon: "desktop" },
+// ];
 
-const selectedInterestsDB = [
-    { id: 1, name: "Basketball", icon: "basketball-ball" },
-    { id: 6, name: "Computer", icon: "desktop" },
-];
+// const selectedInterestsDB = [
+//     { id: 1, name: "Basketball", icon: "basketball-ball" },
+//     { id: 6, name: "Computer", icon: "desktop" },
+// ];
+
 
 function Interest({ handleChange, values }) {
     //Modal state
@@ -41,7 +42,14 @@ function Interest({ handleChange, values }) {
     //Later, the useEffect will include fetch or similar method in Axios to get data from the backend. Right now 
     //setting allInterests when this component first mounts - empty bracket as the second parameter
     useEffect(() => {
-        setAllInterests(allInterestsDB)
+         axios.get("http://localhost:5000/interest")
+         .then(res => {
+             console.log("TEST");
+            const allInterestsDB = res.data;
+            // const allInterestsDB = JSON.parse(data);
+            setAllInterests(allInterestsDB);
+            console.log(allInterestsDB);
+        })
     }, [])
 
 

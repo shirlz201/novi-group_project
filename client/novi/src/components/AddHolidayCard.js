@@ -36,7 +36,7 @@ function AddHolidayCard({ holiday, selectedHolidays, setSelectedHolidays }) {
     useEffect(
         () => {
              //update the interests in the formik object whenevet the selectInterests changes
-            setFieldValue("holiday", selectedHolidays)
+            setFieldValue("holidays", selectedHolidays)
         }, [selectedHolidays]);
 
 
