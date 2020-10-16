@@ -38,13 +38,13 @@ function AddContact() {
     return (
 
         <>
-        
+{/*         
             <TopBar/>
             <ProfileCard/>
             <BirthdayNotification />
             <Holiday />
             <ContactForm />
-            <Interest />
+            <Interest /> */}
        
         <Formik    
         initialValues={{
