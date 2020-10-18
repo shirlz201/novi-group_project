@@ -73,15 +73,6 @@ function AddProfileImage(props) {
             <br />
         </div>
 
-
-
-
-
-
-
-
-
-
         // <div>
         //     {/* <p>hello</p> */}
         //      <Image 

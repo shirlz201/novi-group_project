@@ -3,51 +3,31 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {Card, Row} from 'react-bootstrap'
 
-function AddContactCard({values, handleChange}) {
+function AddContactCard({ }) {
 
     return (
         
             <Form>
                 <Row>
-                {/* To use the Formik values we need to set the form.control name, value, and onChange props  */}
+             
                 <Form.Group className ="col-6" controlId="exampleForm.ControlInput1">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control 
-                        name ="firstName"
-                        type="firstName" 
-                        placeholder="First name"
-                        value={values.firstName}
-                        onChange={handleChange}/>
+                    <Form.Control type="firstName" placeholder="First name" />
                 </Form.Group>
                 <Form.Group className ="col-6"  controlId="exampleForm.ControlInput1">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control
-                        name="lastName" 
-                        type="lastName" 
-                        placeholder="Last name"
-                        value={values.lastName}
-                        onChange={handleChange}/>
+                    <Form.Control type="lastName" placeholder="Last name" />
                 </Form.Group>
 
                 </Row>
                <Row>
                <Form.Group className ="col-6"  controlId="exampleForm.ControlInput1">
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control 
-                        name="phoneNumber"
-                        type="phoneNumber" 
-                        placeholder="(000)000-0000"
-                        value={values.phoneNumber}
-                        onChange={handleChange}/>
+                    <Form.Control type="phoneNumber" placeholder="(000)000-0000" />
                 </Form.Group>
                 <Form.Group className ="col-6" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                        name="email"
-                        type="email" 
-                        placeholder="example@gmail.com" 
-                        value={values.email}
-                        onChange={handleChange}/>
+                    <Form.Control type="email" placeholder="example@gmail.com" />
                 </Form.Group>
 
                </Row>
@@ -63,7 +43,6 @@ function AddContactCard({values, handleChange}) {
                         <div key={`inline-${type}`} className="mb-3">
                             <Form.Check inline label="Send Text" type={type} id={`inline-${type}-1`} />
                             <Form.Check inline label="Buy Gift" type={type} id={`inline-${type}`} />
-
                         </div>
                     ))}
                 </Form>
@@ -85,7 +64,6 @@ function AddContactCard({values, handleChange}) {
                         <option>Sports Party @ Ambers 4PM</option>
                     </Form.Control>
                 </Form.Group>
-
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Notes</Form.Label>
                     <Form.Control as="textarea" rows="3" placeholder="Favorite cake, allergies, hobbies, etc." />

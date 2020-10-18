@@ -9,6 +9,7 @@ const usersRouter = require('./routes/users.js');
 const interestsRouter = require('./routes/interests.js');
 const addressesRouter = require('./routes/addresses');
 const birthdayRouter = require('./routes/birthday');
+const Grid = require("gridfs-stream");
 
 
 require('dotenv').config();
@@ -28,39 +29,38 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connection = mongoose.connection;
 /*section useCreateIndex: true is similar -> it deals with MongoDB 
 deprecating the ensureIndex() function */
+let gfs;
 connection.once('open', () => {
+    gfs = Grid(connection.db , mongoose.mongo)
+    gfs.collection('contacts');
     console.log("MongoDB database connection established successfully");
 })
 
-//begins
 //initialize gridfs storage engine
 const multer = require('multer');
-const methodOverride = require('method-override');
 const GridFsStorage = require('multer-gridfs-storage');
 
-//create storage engine
+// Create storage engine
 const storage = new GridFsStorage({
-    url: config.mongoURI,
+    url: uri,
     file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            //helps encrypt filename before storing it
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                    return reject(err);
-                }
-                const filename = buf.toString('hex') + path.extname(file.originalname);
-                const fileInfo = {
-                    filename: filename,
-                    bucketname: 'uploads'
-                };
-                resolve(fileInfo);
-            });
-        });
-    }
-});
-
-const upload = multer({ storage });
-// ends
+      return new Promise((resolve, reject) => {
+        crypto.randomBytes(16, (err, buf) => {
+          if (err) {
+            return reject(err)
+          }
+          const filename = file.originalname
+          const fileInfo = {
+            filename: filename,
+            bucketName: 'uploads',
+          }
+          resolve(fileInfo)
+        })
+      })
+    },
+  })
+  
+  const upload = multer({ storage })
 
 /*=============SERVER API END POINTS=================
 API endpoint routes are added so the server can be used

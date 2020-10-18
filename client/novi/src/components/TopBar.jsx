@@ -36,11 +36,7 @@ function TopBar() {
                 <Navbar>
                     {/* <a href="#">
                         <Avatar facebookId="100008343750912"
-<<<<<<< HEAD
-                            size="60" round={true} name="Mark Otto" onClick={profileCard} />
-=======
                             size="60" round={true} name="Mark Otto" onClick={ProfileCard} />
->>>>>>> 7fd7dde6ae97f3463baf51191281248c5144e849
                     </a> */}
 
                     {/* <Card style={{ width: '18rem' }}>

@@ -16,8 +16,6 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 function App() {
 
 
-
-
     return (
         <Router>
                 <Switch>
@@ -39,50 +37,6 @@ function App() {
                 </Switch>
         </Router>
     );
-}
-
-
-
-{/* <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center"
-                    }}
-                >
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        ref={imageUploader}
-                        style={{
-                            display: "none"
-                        }}
-                    />
-                    <div
-                        style={{
-                            height: "60px",
-                            width: "60px",
-                            border: "1px dashed black"
-                        }}
-                        onClick={() => imageUploader.current.click()}
-                    >
-                        <img
-                            ref={uploadedImage}
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                position: "acsolute"
-                            }}
-                        />
-                    </div>
-                        Click to upload Image
-                // </div> */
-
-    // </Router>
-    // );
-
 }
 
 export default App;

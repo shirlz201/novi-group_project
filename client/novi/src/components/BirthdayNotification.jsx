@@ -23,7 +23,7 @@ function BirthdayNotification({ handleChange, values}) {
                         </Button>
                 </Col>
             </BirthdayInput>
-            <Collapse in={open} >
+            {/* <Collapse in={open} >
                 <div id="example-collapse-text" >
                     <div className="mx-3 my-3">
                         <Form>
@@ -70,7 +70,7 @@ function BirthdayNotification({ handleChange, values}) {
                         </Form>
                     </div>
                 </div>
-            </Collapse>
+            </Collapse> */}
         </Card >
 
     )
