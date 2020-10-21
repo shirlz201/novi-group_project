@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import Button from "react-bootstrap/Button"
 
-// See EventCard.js in the containers folder
+// These are the styled components used in the compound component, 
+// check index.jsx in the Event folder. The actual event card/section is built in 
+//the event container (containers folder)
 
 // This is the container used to hold mulitiple event cards
 export const Container = styled.section`
@@ -8,11 +11,11 @@ export const Container = styled.section`
 `;
 
 export const Card = styled.div`
-    position:relative;
+    position: relative;
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    max-width: 820px;
+    width: 100%;
+    max-width: 900px;
     min-height: 150px;
     margin: 2em auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -49,6 +52,7 @@ export const Title = styled.h1`
     font-size: 1.3rem;
     line-height: 1.1;
     max-width: 80%;
+    width: 100%;
     // margin-top: 10px;
     margin-bottom: 8px;
     padding:0px;
@@ -90,7 +94,7 @@ top: 1em;
 right: 1em;
 font-size: 0.9rem;
 font-weight: bold;
-background-color: #FF7858;
+background-color: ${props => props.backgroundColor || "#2699FB"};
 min-width: 100px;
 max-width: 250px;
 overflow: hidden;
@@ -101,6 +105,25 @@ color: #fff;
 border-radius: 100px;
 text-align: center;
 box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
+`;
+
+export const NoteButton = styled(Button)`
+font-size: 1rem;
+position: absolute;
+bottom: 1em;
+right: 1em;
+font-size: 0.9rem;
+font-weight: bold;
+min-width: 100px;
+max-width: 250px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+padding: 0.30rem 0.8rem;
+// color: #fff;
+// border-radius: 100px;
+// text-align: center;
+// box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
 `;
 
 export const DetailsWrapper = styled.div`

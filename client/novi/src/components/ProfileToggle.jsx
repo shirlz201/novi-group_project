@@ -60,7 +60,7 @@ return(
                             size="50" round={true} name="Mark Otto" />
       </Dropdown.Toggle>
 
-        <Dropdown.Menu as={CustomMenu} style = {{ boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"}}className ="dropdown-menu-right mt-3">
+        <Dropdown.Menu as={CustomMenu} style = {{ boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"}} className ="dropdown-menu-right mt-3">
             <Dropdown.Item eventKey="1">Events</Dropdown.Item>
             <Dropdown.Item eventKey="2">Contacts</Dropdown.Item>
             <Dropdown.Divider />

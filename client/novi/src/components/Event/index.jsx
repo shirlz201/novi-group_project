@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Card, ImagePane, InfoPane, Image, Note, Title, ReminderChip, DetailsWrapper, DetailItem } from './styles/Event';
+import { Container, Card, ImagePane, InfoPane, Image, Note, NoteButton, Title, ReminderChip, DetailsWrapper, DetailItem } from './styles/Event';
 
+// Compund Component
 export default function Event({ children, ...restProps }) {
     return (
         <Card {...restProps}>
@@ -44,6 +45,10 @@ Event.DetailItem = function EventDetailItem({ children, ...restProps }) {
 
 Event.Note = function EventNote({ children, ...restProps }) {
     return <Note{...restProps}>{children}</Note>;
+}
+
+Event.NoteButton = function EventNoteButton({ children, ...restProps }) {
+    return <NoteButton{...restProps}>{children}</NoteButton>;
 }
 
 // Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
