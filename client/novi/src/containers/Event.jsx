@@ -5,7 +5,7 @@ import { BiTime } from 'react-icons/bi';
 import { ImLocation, ImClock } from 'react-icons/im';
 import { IconContext } from "react-icons";
 import { isThisSecond } from 'date-fns/esm';
-
+import Zoom from 'react-reveal/Zoom';
 // Event.propTypes = {
 
 // }
@@ -48,6 +48,31 @@ const data = [
         eventDate: "September 1, 2020",
         eventTime: "4:00 pm",
         eventLocation: "31-10 Thomson Ave, Long Island City, NY 11101"
+    },
+    {
+        title: "School Reunion Gathering",
+        timeLeft: {
+            days: 6,
+            months: null,
+            years: null
+        },
+        imgURL:"https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        eventDate: "September 5, 2020",
+        eventTime: "3:00 pm",
+        eventLocation: "31-10 Thomson Ave, Long Island City, NY 11101"
+    },
+    {
+        title: "Christmas Party at Shirley's Place",
+        timeLeft: {
+            days: 25,
+            months: null,
+            years: null
+        },
+        imgURL:"https://images.unsplash.com/photo-1588613254750-cf5d89a29b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1308&q=80",
+        eventDate: "September 1, 2020",
+        eventTime: "4:00 pm",
+        eventLocation: "31-10 Thomson Ave, Long Island City, NY 11101",
+        note: "Buy gift and finish writing birthday card, invite friends and family to come to the birthday party"
     }
 ]
 
@@ -97,10 +122,13 @@ export function EventContainer({ title, timeLeft }) {
                         
                         {/* Display note if there is one */}
                         {item.note ? 
+                        <Zoom>
                         <Event.Note>
-                            Notes: Buy gift and finish writing birthday card, invite friends and family to come to the birthday party
+                            Buy gift and finish writing birthday card, invite friends and family to come to the birthday party
 
-                        </Event.Note>: ""}
+                        </Event.Note>
+
+                        </Zoom>: ""}
                     </Event.InfoPane>
                 </Event>
             ))}

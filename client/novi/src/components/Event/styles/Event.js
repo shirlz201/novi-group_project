@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button"
 
 // This is the container used to hold mulitiple event cards
 export const Container = styled.section`
-    background-color: white;
+    // background-color: white;
 `;
 
 export const Card = styled.div`
@@ -20,6 +20,7 @@ export const Card = styled.div`
     margin: 2em auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     border-radius: 10px;
+    background-color: white;
     @media (max-width: 700px) {
         flex-direction: column;
     }
@@ -154,7 +155,8 @@ export const DetailItem = styled.div`
 export const Note = styled.div`
     background-color: #FFF9C4;
     padding: 0.6em;
-    margin-top: 0.5em;
-    border-radius: 11px;
+    margin-top: 1em;
+    border-radius: 2px;
     font-size: 0.8rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 `;

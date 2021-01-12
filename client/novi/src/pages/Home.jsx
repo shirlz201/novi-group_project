@@ -5,12 +5,11 @@ import { Container, Row, Col, Card, Button, Form } from "react-bootstrap"
 import { EventContainer } from "../containers/Event.jsx"
 import TopBar from "../components/TopBar";
 import Sidebar from "../components/Sidebar"
+import "./Home.css"
 
 function Home(props) {
     return (
-        <div>
-           
-
+        <div className = "home">
             <TopBar />
             <Row>
                 <Col md={2} sm={12} style={{ width: "10%" }}>
